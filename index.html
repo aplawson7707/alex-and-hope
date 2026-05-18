@@ -113,6 +113,19 @@
             max-width: 600px;
         }
 
+        .location-note {
+            margin: 1.5rem auto;
+            padding: 1.5rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+        }
+
+        .location-note p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+
         section h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
@@ -123,7 +136,7 @@
         }
 
         .event-details {
-            background: var(--bg-elevated);
+            background: var(--bg);
             border: 1px solid var(--border);
             padding: 3rem 2rem;
             text-align: center;
@@ -156,6 +169,7 @@
 
         .travel-info {
             text-align: center;
+            background: var(--bg-elevated);
         }
 
         .travel-info p {
@@ -210,27 +224,32 @@
         .map-container {
             margin: 1.5rem auto 2rem;
             max-width: 600px;
-            border: 1px solid var(--border);
         }
 
         .map-container iframe {
             display: block;
             filter: sepia(15%) saturate(0.8);
+            border: 1px solid var(--border);
         }
 
         .map-link {
             display: block;
             text-align: center;
-            padding: 0.75rem;
-            background: var(--bg-elevated);
-            color: var(--text-secondary);
+            padding: 1rem 2rem;
+            margin-top: 0.75rem;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
             text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s ease;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
         }
 
         .map-link:hover {
-            color: var(--accent);
+            background: var(--accent);
+            color: var(--bg);
         }
 
         footer {
@@ -239,6 +258,15 @@
             color: var(--text-secondary);
             font-size: 0.85rem;
             border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 600px) {
@@ -326,7 +354,7 @@
     </main>
 
     <footer>
-        <p>Questions? Reach us at alexhope@example.com</p>
+        <p>For any other questions, reach us at <a href="mailto:alex-and-hope@agentmail.to">alex-and-hope@agentmail.to</a></p>
     </footer>
 </body>
 </html>
