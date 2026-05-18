@@ -79,6 +79,38 @@
             font-size: 1.1rem;
         }
 
+        .hero {
+            position: relative;
+        }
+
+        .corner-floral {
+            position: absolute;
+            width: 35vw;
+            max-width: 280px;
+            min-width: 120px;
+            height: auto;
+            opacity: 0.85;
+            pointer-events: none;
+        }
+
+        .corner-floral.top-left {
+            top: 0;
+            left: 0;
+            transform: rotate(180deg);
+        }
+
+        .corner-floral.bottom-right {
+            bottom: 0;
+            right: 0;
+        }
+
+        @media (max-width: 600px) {
+            .corner-floral {
+                width: 40vw;
+                min-width: 100px;
+            }
+        }
+
         .scroll-hint {
             position: absolute;
             bottom: 2rem;
@@ -282,6 +314,8 @@
 </head>
 <body>
     <header class="hero">
+        <img src="color-floral.png" alt="" class="corner-floral top-left">
+        <img src="color-floral.png" alt="" class="corner-floral bottom-right">
         <h1>ALEX <span class="ampersand">&</span> HOPE</h1>
         <p class="date">September 19, 2026</p>
         <p class="location">Rainy Lake &bull; Seeley Lake, Montana</p>
