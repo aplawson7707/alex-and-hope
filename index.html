@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex & Hope | September 19, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f5f1e8;
+            --bg-elevated: #ebe5d5;
+            --text-primary: #5c4033;
+            --text-secondary: #8b6b4a;
+            --accent: #3d2b1f;
+            --border: #d4c5a9;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .ampersand {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent);
+            font-size: 0.8em;
+        }
+
+        .hero .date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 1.5rem;
+        }
+
+        .hero .location {
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .event-details {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .event-details h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .meta-item {
+            color: var(--text-secondary);
+        }
+
+        .meta-item strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .travel-info {
+            text-align: center;
+        }
+
+        .travel-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gift-section {
+            text-align: center;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            padding: 3rem 2rem;
+        }
+
+        .gift-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .gift-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .gift-link:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .rsvp-note {
+            text-align: center;
+            border-top: 1px solid var(--border);
+            padding-top: 3rem;
+        }
+
+        .rsvp-note p {
+            color: var(--text-secondary);
+        }
+
+        .map-container {
+            margin: 1.5rem auto 2rem;
+            max-width: 600px;
+            border: 1px solid var(--border);
+        }
+
+        .map-container iframe {
+            display: block;
+            filter: sepia(15%) saturate(0.8);
+        }
+
+        .map-link {
+            display: block;
+            text-align: center;
+            padding: 0.75rem;
+            background: var(--bg-elevated);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s ease;
+        }
+
+        .map-link:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>ALEX <span class="ampersand">&</span> HOPE</h1>
+        <p class="date">September 19, 2026</p>
+        <p class="location">Rainy Lake &bull; Seeley Lake, Montana</p>
+        <span class="scroll-hint">Scroll</span>
+    </header>
+
+    <main>
+        <section class="event-details">
+            <h2>You're Invited</h2>
+            <h3>A Celebration by the Lake</h3>
+            <p>Join us September 19, 2026 at Rainy Lake near Seeley Lake, Montana for a relaxed outdoor celebration with family and friends.</p>
+            
+            <div class="location-note">
+                <p><strong>Location Note:</strong> We hope to hold this celebration at the Rainy Lake viewing area near campsites 3 and 4. This area cannot be reserved in advance. If this spot is unavailable when we arrive, we will update this website with our nearby alternative location. Please check back closer to the date for any updates.</p>
+            </div>
+            
+            <div class="event-meta">
+                <div class="meta-item">
+                    <strong>Date</strong>
+                    Saturday, September 19, 2026
+                </div>
+                <div class="meta-item">
+                    <strong>Time</strong>
+                    Details to follow
+                </div>
+                <div class="meta-item">
+                    <strong>Location</strong>
+                    Rainy Lake<br>
+                    Near Seeley Lake, Montana
+                </div>
+            </div>
+        </section>
+
+        <section class="travel-info">
+            <h2>Travel</h2>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4854.249199308905!2d-113.59262489190836!3d47.33648873987067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1779065989055!5m2!1sen!2sus"
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Rainy+Lake+Campground,+Seeley+Lake,+MT+59868" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="map-link">
+                    Open in Google Maps &rarr;
+                </a>
+            </div>
+            
+            <p>Seeley Lake is approximately 1 hour north of Missoula and 2 hours south of Kalispell/Whitefish. The nearest major airport is Missoula (MSO), about 60 miles south.</p>
+            
+            <p>The campsite is located on the east side of Rainy Lake near campsites 3 and 4.</p>
+        </section>
+
+        <section class="gift-section">
+            <h2>Gifts</h2>
+            <p>Your presence is the greatest gift. If you'd like to contribute to our future together:</p>
+            <a href="#" class="gift-link">Travel Fund &rarr;</a>
+        </section>
+
+        <section class="rsvp-note">
+            <h2>Questions?</h2>
+            <p>This website will be kept up to date with the latest information. Check back for timing details, confirmed location, and any other updates as the date approaches.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Questions? Reach us at alexhope@example.com</p>
+    </footer>
+</body>
+</html>
